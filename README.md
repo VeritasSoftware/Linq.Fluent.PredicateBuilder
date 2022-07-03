@@ -43,7 +43,9 @@ This can be used with IQueryable\<T\>.Where
 
 ## Linq Where extension
 
-There is also an easy to use Linq Where extension.
+There is also an easy to use Linq Where extensions.
+
+### Based on operation
 
 Just select the operation and specify the predicates.
 
@@ -61,9 +63,23 @@ var result = list.Where(Operation.Or,
 Assert.Equal(4, result.Count());
 ```
 
+### With Predicate Builder
+
+```C#
+var list = Enumerable.Range(1, 10000000);
+
+var result = list.Where(builder => builder.Initial(x => x >= 12 && x <= 13)
+                                          .Or(x => x <= 2)
+                                          .Or(x => x > 99999999)
+                                    .ToPredicate())
+                 .ToList();
+
+Assert.Equal(4, result.Count());
+```
+
 **Note:**
 
-There are 2 Where extensions.
+There are 2 Where extensions each for:
 
 * IEnumerable\<T\>.Where
 * IQueryable\<T\>.Where
