@@ -8,6 +8,9 @@ namespace System.Linq
 
         public IPredicateBuilderOperations<T> Initial(Expression<Func<T, bool>> predicate)
         {
+            if (predicate == null)
+                throw new ArgumentNullException(nameof(predicate));
+
             _predicate = predicate;
 
             return this;
@@ -15,6 +18,9 @@ namespace System.Linq
 
         public IPredicateBuilderOperations<T> And(Expression<Func<T, bool>> predicate)
         {
+            if (predicate == null)
+                throw new ArgumentNullException(nameof(predicate));
+
             _predicate = _predicate.And(predicate);
 
             return this;
@@ -22,6 +28,9 @@ namespace System.Linq
 
         public IPredicateBuilderOperations<T> AndAlso(Expression<Func<T, bool>> predicate)
         {
+            if (predicate == null)
+                throw new ArgumentNullException(nameof(predicate));
+
             _predicate = _predicate.AndAlso(predicate);
 
             return this;
@@ -29,6 +38,9 @@ namespace System.Linq
 
         public IPredicateBuilderOperations<T> Or(Expression<Func<T, bool>> predicate)
         {
+            if(predicate == null)
+                throw new ArgumentNullException(nameof(predicate));
+
             _predicate = _predicate.Or(predicate);
 
             return this;
@@ -36,6 +48,9 @@ namespace System.Linq
 
         public IPredicateBuilderOperations<T> OrElse(Expression<Func<T, bool>> predicate)
         {
+            if (predicate == null)
+                throw new ArgumentNullException(nameof(predicate));
+
             _predicate = _predicate.OrElse(predicate);
 
             return this;

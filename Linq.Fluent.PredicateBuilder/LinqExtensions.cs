@@ -8,6 +8,9 @@ namespace System.Linq
         public static IEnumerable<T> Where<T>(this IEnumerable<T> list, Operation operation, 
                                                 params Expression<Func<T, bool>>[] predicates)
         {
+            if (predicates == null)
+                throw new ArgumentNullException(nameof(predicates));
+
             var aggregated = predicates.AggregatePredicates<T>(operation);
 
             return list.Where(aggregated.Compile());
@@ -16,6 +19,9 @@ namespace System.Linq
         public static IQueryable<T> Where<T>(this IQueryable<T> list, Operation operation,
                                                 params Expression<Func<T, bool>>[] predicates)
         {
+            if(predicates == null)
+                throw new ArgumentNullException(nameof(predicates));
+
             var aggregated = predicates.AggregatePredicates<T>(operation);
 
             return list.Where(aggregated);
