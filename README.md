@@ -41,7 +41,7 @@ This can be used with IEnumerable\<T\>.Where.
 
 This can be used with IQueryable\<T\>.Where
 
-## Linq Where extension
+## Linq Where extensions
 
 There is also an easy to use Linq Where extensions.
 
