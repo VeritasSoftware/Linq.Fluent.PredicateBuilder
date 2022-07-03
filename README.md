@@ -36,9 +36,9 @@ Assert.Equal(4, result.Count());
 
 **ToPredicate** produces a predicate (Func<T, bool>).
 
-This can be used with IEnumerable<T>.Where.
+This can be used with IEnumerable\<T\>.Where.
 
 
 **ToExpressionPredicate** produces an expression predicate (Expression<Func<T, bool>>).
 
-This can be used with IQueryable<T>.Where
+This can be used with IQueryable\<T\>.Where
