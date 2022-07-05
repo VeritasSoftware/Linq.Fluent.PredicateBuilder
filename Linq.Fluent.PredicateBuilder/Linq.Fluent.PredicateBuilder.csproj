@@ -3,6 +3,24 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
 	<LangVersion>Latest</LangVersion>
+	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<PackageProjectUrl>https://github.com/VeritasSoftware/Linq.Fluent.PredicateBuilder</PackageProjectUrl>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<RepositoryUrl>https://github.com/VeritasSoftware/Linq.Fluent.PredicateBuilder</RepositoryUrl>
+	<Description>Fluent PredicateBuilder and Linq extensions.  Helps you in creating a dynamic where clause in your LINQ queries.
+Also, easy to use Linq Where extensions. </Description>
+	<PackageTags>Linq, fluent, predicatebuilder, where, dynamic, clause, where, extensions</PackageTags>
+	<PackageReleaseNotes>Initial release</PackageReleaseNotes>
+	<Copyright>MIT License</Copyright>
+	<Company>Veritas Software</Company>
+	<Authors>Shantanu</Authors>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
