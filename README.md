@@ -30,6 +30,46 @@ var result = list.Where(predicate)
 Assert.Equal(4, result.Count());
 ```
 
+Also, You can create predicates based on **conditions**.
+
+Eg. In below query, all employees are returned if **restrict** is false.
+
+Only 1 employee is returned if restrict is true.
+
+```C#
+[Theory(DisplayName = "Test_Fluent_PredicateBuilder_Conditional")]
+[InlineData(true)]
+[InlineData(false)]
+public void Test_Fluent_PredicateBuilder_Conditional(bool restrict)
+{
+    var list = new List<Employee>
+    {
+        new Employee { Id = 1, Name = "Cliff", Department = "Human Resources"},
+        new Employee { Id = 2, Name = "John", Department = "IT"}
+    };
+
+    var predicate = new PredicateBuilder<Employee>()
+                            .Initial(e => true)
+                            .And(restrict,  e => e.Department == "IT")
+                    .ToPredicate();
+
+    var result = list.Where(predicate)
+                     .ToList();
+
+    if (restrict)
+    {
+        Assert.Single(result);
+        Assert.Equal("John", result[0].Name);
+    }                
+    else
+    {
+        Assert.Equal(2, result.Count());
+        Assert.Equal("Cliff", result[0].Name);
+        Assert.Equal("John", result[1].Name);
+    }                
+}
+```
+
 **Note:**
 
 **ToPredicate** produces a predicate (Func<T, bool>).

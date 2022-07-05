@@ -26,12 +26,34 @@ namespace System.Linq
             return this;
         }
 
+        public IPredicateBuilderOperations<T> And(bool condition, Expression<Func<T, bool>> predicate)
+        {
+            if (predicate == null)
+                throw new ArgumentNullException(nameof(predicate));
+
+            if (condition)
+                _predicate = _predicate.And(predicate);
+
+            return this;
+        }
+
         public IPredicateBuilderOperations<T> AndAlso(Expression<Func<T, bool>> predicate)
         {
             if (predicate == null)
                 throw new ArgumentNullException(nameof(predicate));
 
             _predicate = _predicate.AndAlso(predicate);
+
+            return this;
+        }
+
+        public IPredicateBuilderOperations<T> AndAlso(bool condition, Expression<Func<T, bool>> predicate)
+        {
+            if (predicate == null)
+                throw new ArgumentNullException(nameof(predicate));
+
+            if (condition)
+                _predicate = _predicate.AndAlso(predicate);
 
             return this;
         }
@@ -46,12 +68,34 @@ namespace System.Linq
             return this;
         }
 
+        public IPredicateBuilderOperations<T> Or(bool condition, Expression<Func<T, bool>> predicate)
+        {
+            if (predicate == null)
+                throw new ArgumentNullException(nameof(predicate));
+
+            if (condition)
+                _predicate = _predicate.Or(predicate);
+
+            return this;
+        }
+
         public IPredicateBuilderOperations<T> OrElse(Expression<Func<T, bool>> predicate)
         {
             if (predicate == null)
                 throw new ArgumentNullException(nameof(predicate));
 
             _predicate = _predicate.OrElse(predicate);
+
+            return this;
+        }
+
+        public IPredicateBuilderOperations<T> OrElse(bool condition, Expression<Func<T, bool>> predicate)
+        {
+            if (predicate == null)
+                throw new ArgumentNullException(nameof(predicate));
+
+            if (condition)
+                _predicate = _predicate.OrElse(predicate);
 
             return this;
         }

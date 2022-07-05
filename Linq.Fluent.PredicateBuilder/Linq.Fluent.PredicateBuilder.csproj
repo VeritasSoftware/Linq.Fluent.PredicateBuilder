@@ -10,10 +10,11 @@
 	<Description>Fluent PredicateBuilder and Linq extensions.  Helps you in creating a dynamic where clause in your LINQ queries.
 Also, easy to use Linq Where extensions. </Description>
 	<PackageTags>Linq, fluent, predicatebuilder, where, dynamic, clause, where, extensions</PackageTags>
-	<PackageReleaseNotes>Initial release</PackageReleaseNotes>
+	<PackageReleaseNotes>Added conditional methods to predicate builder.</PackageReleaseNotes>
 	<Copyright>MIT License</Copyright>
 	<Company>Veritas Software</Company>
 	<Authors>Shantanu</Authors>
+	<Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
